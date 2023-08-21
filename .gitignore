@@ -1,3 +1,4 @@
-Numbers_Suffix/**/__pycache__/ *env/ .env .gitignore
-Backend_testove_nimble/**/__pycache__/ *env/ .env .gitignore
-
+.gitignore
+__pycache__
+*env/
+.env

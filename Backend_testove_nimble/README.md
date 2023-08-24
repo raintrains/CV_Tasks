@@ -1,3 +1,8 @@
 # Run it in the terminal
 
-celery -A nimble_updater_app beat --loglevel=info
+# Launch beat
+celery -A tasks beat --loglevel=info
+# Launch worker
+celery -A tasks worker --loglevel=info
+# Clear queue
+celery -A tasks purge

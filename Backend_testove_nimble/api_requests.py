@@ -37,3 +37,4 @@ def update_db_from_api():
     else:
 
         print(f"Request failed with an error: {r.status_code}")
+        

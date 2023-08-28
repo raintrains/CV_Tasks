@@ -24,3 +24,6 @@ python my_api.py
 
 # Launch api for table search
 http://127.0.0.1:8000/search?term='your_text'
+
+# Example
+http://127.0.0.1:8000/search?term=Arnold

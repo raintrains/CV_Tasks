@@ -37,6 +37,3 @@ def update_db_from_api():
     else:
 
         print(f"Request failed with an error: {r.status_code}")
-
-    # first name/last name/email/description
-# update_db_from_api()

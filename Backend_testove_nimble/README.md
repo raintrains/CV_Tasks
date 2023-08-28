@@ -12,8 +12,8 @@ http://127.0.0.1:8000/search?term='your_text'
 # Let`s run it
 
 # Preparing the enviroment
-python3.10 -m venv venv
-source venv/bin/activate
+python3.10 -m venv venv && 
+source venv/bin/activate && 
 pip install -r requirements.txt
 
 # Running the app to load data from csv and after daily update from api

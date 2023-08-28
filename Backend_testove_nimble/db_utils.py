@@ -105,4 +105,4 @@ def table_exists():
 
         return True
 
-    return False
+    return False 

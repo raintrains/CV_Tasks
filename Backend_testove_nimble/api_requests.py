@@ -30,6 +30,10 @@ def update_db_from_api():
 
                 update_table(f_name=first_name, l_name=last_name, email=email, desc=description)
 
+            else:
+
+                print("Some of the fields are empty")
+
     else:
 
         print(f"Request failed with an error: {r.status_code}")

@@ -10,13 +10,24 @@ import json
 db_params = json.loads(dotenv_values(".env").get("DB_CONFIG"))
 
 
+def get_connection():
+
+    connection = connect(**db_params)
+    connection.autocommit = True
+
+    return connection
+
+
+def close_connection(connection):
+    
+    connection.close()
+
+
 def create_table_and_first_filling():
         
-    connection = connect(**db_params)
+    connection = get_connection()
 
     cursor = connection.cursor()
-
-    connection.autocommit = True
 
     create_table = """  CREATE TABLE IF NOT EXISTS nimble_table (
 
@@ -51,12 +62,12 @@ def create_table_and_first_filling():
                 pass
 
     cursor.close()
-    connection.close()
+    close_connection(connection)
     
 
 def update_table(f_name, l_name, email, desc):
     
-    connection = connect(**db_params)
+    connection = get_connection()
 
     cursor = connection.cursor()
 
@@ -72,12 +83,12 @@ def update_table(f_name, l_name, email, desc):
         pass
     
     cursor.close()
-    connection.close()
+    close_connection(connection)
 
 
 def table_exists():
 
-    connection = connect(**db_params)
+    connection = get_connection()
 
     cursor = connection.cursor()
 
@@ -87,8 +98,11 @@ def table_exists():
 
     response = cursor.fetchone()[0]
 
+    cursor.close()
+    close_connection(connection)
+
     if response:
 
         return True
-    
+
     return False
